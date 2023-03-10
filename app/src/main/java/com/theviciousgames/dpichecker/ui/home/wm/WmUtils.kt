@@ -39,4 +39,5 @@ class WmUtils {
         activity.windowManager.defaultDisplay.getMetrics(metrics)
         return metrics.scaledDensity
     }
+    ///
 }
