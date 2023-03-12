@@ -1,6 +1,216 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#07080D"
     android:layout_height="match_parent">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/bg_home_layout_main"
+        android:layout_margin="20dp"
+        android:paddingBottom="20dp"
+        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_menu"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:icon="@drawable/ic_shop"
+            app:iconPadding="0dp"
+            app:iconGravity="textStart"
+            app:cornerRadius="180dp"/>
+
+        <TextView
+            android:id="@+id/textview_title_density"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:text="Density (DPI)"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/button_menu" />
+
+        <TextView
+            android:id="@+id/textview_value_density"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            tools:text="230"
+            android:textSize="90sp"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_title_density" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_change_resolution"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@id/textview_value_density"
+            android:text="Change Resolution"
+            app:cornerRadius="20dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_change_dpi"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@id/button_change_resolution"
+            android:text="Change DPI"
+            app:cornerRadius="20dp"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/black"
+            android:layout_marginHorizontal="20dp"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textview_title_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/layout_main"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="30dp"
+        android:textSize="34sp"
+        android:textColor="@color/white"
+        android:text="other"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textview_title_other"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_home_layout_main"
+            android:backgroundTint="#232222"
+            android:layout_marginHorizontal="20dp"
+            >
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="20dp"
+                android:text="horizontal density"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/textview_value_x_density"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="20dp"
+                tools:text="230"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_home_layout_main"
+            android:backgroundTint="#232222"
+            android:layout_marginHorizontal="20dp"
+            >
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="20dp"
+                android:text="vertical density"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/textview_value_y_density"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="20dp"
+                tools:text="230"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/bg_home_layout_main"
+            android:backgroundTint="#232222"
+            android:layout_marginHorizontal="20dp"
+            >
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="20dp"
+                android:text="scaled density"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/textview_value_scaled_density"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="20dp"
+                tools:text="230"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
