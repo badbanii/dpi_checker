@@ -15,6 +15,7 @@ class WmUtils {
     private var xdpi=0.0
     private var ydpi=0
     private var metrics=DisplayMetrics()
+
     fun getCurrentDpi(activity: Activity):Int{
         activity.windowManager.defaultDisplay.getMetrics(metrics)
         return metrics.densityDpi
@@ -39,5 +40,4 @@ class WmUtils {
         activity.windowManager.defaultDisplay.getMetrics(metrics)
         return metrics.scaledDensity
     }
-    ///
 }
