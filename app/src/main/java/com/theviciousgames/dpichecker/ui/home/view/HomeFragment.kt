@@ -2,7 +2,9 @@ package com.theviciousgames.dpichecker.ui.home.view
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -18,15 +20,20 @@ class HomeFragment:Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        getCurrentDensity()
-        getCurrentXDensity()
-        getCurrentYDensity()
-        getCurrentScaledDensity()
+
+        updateUi()
     }
 
-    private fun getCurrentDensity()
+    private fun updateUi()
     {
-        Log.d("debug", viewModel.getCurrentDensity(requireActivity()).toString())
+        with(binding)
+        {
+            textviewValueDensity.text= getCurrentDensity().toString()
+        }
+    }
+    private fun getCurrentDensity():Int
+    {
+        return viewModel.getCurrentDensity(requireActivity())
     }
 
     private fun getCurrentXDensity()
