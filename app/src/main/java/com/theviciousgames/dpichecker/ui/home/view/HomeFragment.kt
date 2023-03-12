@@ -1,5 +1,8 @@
 package com.theviciousgames.dpichecker.ui.home.view
 
+import android.os.Bundle
+import android.util.Log
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -12,6 +15,34 @@ import com.theviciousgames.dpichecker.utils.Destinations
 class HomeFragment:Fragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private val viewModel: HomeViewModel by viewModels()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        getCurrentDensity()
+        getCurrentXDensity()
+        getCurrentYDensity()
+        getCurrentScaledDensity()
+    }
+
+    private fun getCurrentDensity()
+    {
+        Log.d("debug", viewModel.getCurrentDensity(requireActivity()).toString())
+    }
+
+    private fun getCurrentXDensity()
+    {
+        Log.d("debug", viewModel.getCurrentXDensity(requireActivity()).toString())
+    }
+
+    private fun getCurrentYDensity()
+    {
+        Log.d("debug", viewModel.getCurrentYDensity(requireActivity()).toString())
+    }
+
+    private fun getCurrentScaledDensity()
+    {
+        Log.d("debug", viewModel.getCurrentScaledDensity(requireActivity()).toString())
+    }
 
     private fun navigateTo(destination: Destinations)
     {
