@@ -29,6 +29,9 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
             buttonShare.setOnClickListener {
                 openSharingDialog()
             }
+            buttonRate.setOnClickListener {
+                
+            }
         }
     }
 
