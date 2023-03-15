@@ -7,6 +7,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.play.core.review.ReviewManagerFactory
 import com.theviciousgames.dpichecker.R
 import com.theviciousgames.dpichecker.databinding.FragmentMenuBinding
 
@@ -30,7 +31,16 @@ class MenuFragment : Fragment(R.layout.fragment_menu) {
                 openSharingDialog()
             }
             buttonRate.setOnClickListener {
-                
+                showRatingDialog()
+            }
+        }
+    }
+
+    private fun showRatingDialog() {
+        val reviewManager = context?.let { ReviewManagerFactory.create(it) }
+        reviewManager?.requestReviewFlow()?.addOnCompleteListener {
+            if (it.isSuccessful) {
+                reviewManager.launchReviewFlow(requireActivity(), it.result)
             }
         }
     }
