@@ -1,5 +1,8 @@
 package com.theviciousgames.dpichecker.ui.home.view
 
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -17,7 +20,41 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         updateUi()
+        buttonFunctions()
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun openStore(appPackage: String) {
+        try {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("market://details?id=$appPackage")
+                )
+            )
+        } catch (e: ActivityNotFoundException) {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://play.google.com/store/apps/details?id=$appPackage")
+                )
+            )
+        }
+    }
+
+    private fun buttonFunctions() {
+        with(binding)
+        {
+            buttonChangeResolution.setOnClickListener {
+                openStore("com.theviciousgames.resolutionchanger")
+            }
+            buttonChangeDpi.setOnClickListener {
+                openStore("com.theviciousgames.dpimodifier")
+            }
+            buttonMenu.setOnClickListener {
+                navigateTo(Destinations.Menu)
+            }
+        }
     }
 
     private fun updateUi() {
