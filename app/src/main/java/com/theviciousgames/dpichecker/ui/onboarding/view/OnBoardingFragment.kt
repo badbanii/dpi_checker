@@ -5,8 +5,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.fxn.stash.Stash
 import com.theviciousgames.dpichecker.R
 import com.theviciousgames.dpichecker.databinding.FragmentOnboardingBinding
+import com.theviciousgames.dpichecker.utils.Constants
 import com.theviciousgames.dpichecker.utils.Destinations
 
 class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
@@ -14,6 +16,7 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        checkIfUserIsNew()
         buttonFunctions()
     }
 
@@ -22,10 +25,21 @@ class OnBoardingFragment : Fragment(R.layout.fragment_onboarding) {
         {
             buttonNext.setOnClickListener {
                 navigateTo(Destinations.Home)
+                setUserIsNew()
             }
         }
     }
-    
+
+    private fun checkIfUserIsNew() {
+        if (!Stash.getBoolean(Constants.USER_IS_NEW, true)) {
+            navigateTo(Destinations.Home)
+        }
+    }
+
+    private fun setUserIsNew() {
+        Stash.put(Constants.USER_IS_NEW, false)
+    }
+
     private fun navigateTo(destination: Destinations) {
         when (destination) {
             Destinations.Home -> {
